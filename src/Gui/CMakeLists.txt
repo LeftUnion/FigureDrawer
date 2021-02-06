@@ -1,8 +1,6 @@
 project(Gui)
 
-find_package(Qt5Core ${QT_REQUIRED_VERSION} REQUIRED)
-find_package(Qt5Gui ${QT_REQUIRED_VERSION} REQUIRED)
-find_package(Qt5Widgets ${QT_REQUIRED_VERSION} REQUIRED)
+find_package(Qt5 ${QT_REQUIRED_VERSION} REQUIRED COMPONENTS Core Gui Widgets)
 
 file(GLOB_RECURSE UI_GUI "${CMAKE_CURRENT_SOURCE_DIR}/ui/*.ui")
 file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
@@ -16,9 +14,7 @@ target_link_libraries(${PROJECT_NAME}
   PUBLIC
     Qt5::Core
     Qt5::Widgets
-#   HooverCore::Postgres
-#   HooverCore::WebDav
-#   HooverCore::PDF
+    Core::GeometryComponent
 )
 
 target_include_directories(${PROJECT_NAME}

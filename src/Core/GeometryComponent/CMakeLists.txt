@@ -1,4 +1,4 @@
-set(Component "FooComponent")
+set(Component "GeometryComponent")
 
 find_package(Qt5 ${QT_REQUIRED_VERSION} COMPONENTS REQUIRED
   Core
