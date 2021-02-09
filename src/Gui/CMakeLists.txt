@@ -8,6 +8,16 @@ file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 qt5_wrap_ui(GUI_HEADERS ${UI_GUI})
 
+#set(CMAKE_SYSTEM_NAME Windows)
+
+#SET(CMAKE_C_COMPILER i686-w64-mingw32-gcc)
+#SET(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)
+#SET(CMAKE_RC_COMPILER i686-w64-mingw32-windres)
+#set(CMAKE_RANLIB i686-w64-mingw32-ranlib)
+
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+#set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS)
+
 add_executable(${PROJECT_NAME} ${UI_GUI} ${HEADERS} ${SOURCES} ${TEMPLATES} ${CONFIGS})
 
 target_link_libraries(${PROJECT_NAME}

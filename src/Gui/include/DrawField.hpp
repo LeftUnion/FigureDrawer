@@ -6,19 +6,46 @@
 #include <Figure.hpp>
 #include <vector>
 
+/*!
+ * \brief The DrawField class - класс, определяющий поле для рисования
+ */
 class DrawField : public QGraphicsView
 {
     public:
+        /*!
+         * \brief DrawField - конструктор, устанавливающий поле для рисования.
+         * \param parent - родитель, на который накладывается поле.
+         */
         DrawField(QWidget* parent);
 
     protected slots:
-        void mousePressEvent(QMouseEvent *event);
+        /*!
+         * \brief mousePressEvent - обрабает нажатия мыши
+         * \param event - клик мышки
+         */
+        void mousePressEvent(QMouseEvent *event) override final;
+
+        /*!
+         * \brief keyPressEvent - обрабатывет нажатия на кнопки клавиатуры
+         * \param event - нажатие на кнопку клавиатуры
+         */
+        void keyPressEvent(QKeyEvent *event) override final;
 
     private:
+        /*!
+         * \brief refreshAll - обновляет поле для рисования
+         */
         void refreshAll();
 
     private:
-        std::vector<std::pair<Geometry::Point, std::vector<Geometry::Point>>> mFigures;
+        /*!
+         * \brief mFigures - вектор, хранящий объекты класса Figure
+         */
+        std::vector<Geometry::Figure> mFigures;
+
+        /*!
+         * \brief mScene - указатель на поле для рисования
+         */
         std::shared_ptr<QGraphicsScene> mScene;
 
 };
